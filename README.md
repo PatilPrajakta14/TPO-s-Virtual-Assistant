@@ -31,7 +31,27 @@ A Flask-based web application that helps students and visitors schedule appointm
 
 ## Project Structure
 
-TPO-s-Virtual-Assistant/ │ ├─ project/ │ ├─ static/ │ │ ├─ css/ │ │ ├─ js/ │ │ └─ images/ │ ├─ templates/ │ │ ├─ admin-login.html │ │ ├─ admindata.html │ │ ├─ adminfunctions.html │ │ ├─ adminappointments.html │ │ ├─ user-login.html │ │ ├─ user.html │ │ ├─ appointment.html │ │ ├─ others.html │ │ ├─ thanks.html │ │ └─ ... │ ├─ main.py │ ├─ config.json <-- Configuration file (ignored by Git) │ ├─ .gitignore <-- Contains config.json, .env, etc. │ └─ requirements.txt
+TPO-s-Virtual-Assistant/
+├─ project/
+│  ├─ static/
+│  │  ├─ css/
+│  │  ├─ js/
+│  │  └─ images/
+│  ├─ templates/
+│  │  ├─ admin-login.html
+│  │  ├─ admindata.html
+│  │  ├─ adminfunctions.html
+│  │  ├─ adminappointments.html
+│  │  ├─ user-login.html
+│  │  ├─ user.html
+│  │  ├─ appointment.html
+│  │  ├─ others.html
+│  │  ├─ thanks.html
+│  │  └─ ...
+│  ├─ main.py
+│  ├─ config.json        # Configuration file (ignored by Git)
+│  ├─ .gitignore         # Contains config.json, .env, etc.
+│  └─ requirements.txt
 
 
 - **`main.py`** – The primary Flask application file containing routes, models, and configuration.
@@ -117,42 +137,30 @@ Submit feedback via /feedback.
 Admin Dashboard:
 Admin can view all appointments via /adminappointment.
 
-Routes
+### Routes
 Here are some key routes defined in the application:
 
-/
+- / : Renders the homepage (index.html)
+  
+- /signup (GET, POST) : User registration endpoint; creates a new user record in the database
+  
+- /login (GET, POST) : User login endpoint; verifies email and password using secure hash functions
+  
+- /logout : Logs out the current user
+  
+- /admin (GET, POST) : Admin login endpoint; verifies admin credentials as stored in config.json
 
-Renders the homepage (index.html).
-/signup (GET, POST)
+- /adminlogout : Logs out the admin (ensure session key consistency)
 
-User registration endpoint; creates a new user record in the database.
-/login (GET, POST)
-
-User login endpoint; verifies email and password using secure hash functions.
-/logout
-
-Logs out the current user.
-/admin (GET, POST)
-
-Admin login endpoint; verifies admin credentials as stored in config.json.
-/adminlogout
-
-Logs out the admin (ensure session key consistency).
-/appointment (GET, POST)
-
-Allows users to schedule an appointment; sends a confirmation email upon booking.
-/adminappointment
-
-Displays all appointments to the admin.
-/feedback (GET, POST)
-
-Submits user feedback to the database.
-/others (GET, POST)
-
-Stores additional trainer data in the tr table.
-/test
-
-A test route to check database connectivity.
+- /appointment (GET, POST) : Allows users to schedule an appointment; sends a confirmation email upon booking
+  
+- /adminappointment : Displays all appointments to the admin
+  
+- /feedback (GET, POST) : Submits user feedback to the database
+  
+- /others (GET, POST) : Stores additional trainer data in the tr table
+  
+- /test : A test route to check database connectivity
 
 ### Contact
 For any issues, suggestions, or contributions, please feel free to open an issue or contact the author directly.
