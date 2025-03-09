@@ -15,18 +15,17 @@ import pymysql
 from flask_mail import Mail
 import json
 
-#database connection
-local_server = True
+with open('config.json', 'r') as c:
+    params = json.load(c)["params"]
+
+
 app = Flask(__name__)
-app.secret_key = "sayali"
+app.secret_key = params["secret_key"]
+
 userpass = 'mysql+pymysql://root:@'
 basedir  = 'localhost'
 dbname   = '/placement'
-socket   = ''
-
-
-with open('config.json','r') as c:
-    params=json.load(c)["params"]
+app.config['SQLALCHEMY_DATABASE_URI'] = userpass + basedir + dbname
 
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
