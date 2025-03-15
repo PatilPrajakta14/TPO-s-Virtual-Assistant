@@ -30,7 +30,7 @@ A Flask-based web application that helps students and visitors schedule appointm
 ---
 
 ## Project Structure
-
+```
 TPO-s-Virtual-Assistant/
 ├─ project/
 │  ├─ static/
@@ -52,11 +52,10 @@ TPO-s-Virtual-Assistant/
 │  ├─ config.json        # Configuration file (ignored by Git)
 │  ├─ .gitignore         # Contains config.json, .env, etc.
 │  └─ requirements.txt
-
+```
 
 - **`main.py`** – The primary Flask application file containing routes, models, and configuration.
-- **`config.json`** – Contains sensitive configuration parameters (database credentials, email credentials, admin login, etc.).  
-  *Ensure this file is added to your `.gitignore` so it’s not pushed publicly.*
+- **`config.json`** – Contains sensitive configuration parameters (database credentials, email credentials, admin login, etc.).
 - **`templates/`** – Jinja2 templates for HTML pages.
 - **`static/`** – Static files such as CSS, JavaScript, and images.
 - **`.gitignore`** – Specifies files and directories Git should ignore.
@@ -77,24 +76,17 @@ TPO-s-Virtual-Assistant/
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/<your-username>/TPO-s-Virtual-Assistant.git
+   git clone https://github.com/PatilPrajakta14/TPO-s-Virtual-Assistant.git
    cd TPO-s-Virtual-Assistant/project
 
-2. Create a Virtual Environment (Recommended)
-python -m venv venv
-# On Linux/Mac:
-source venv/bin/activate
-# On Windows:
-venv\Scripts\activate
-
-3. Install Dependencies
+2. Install Dependencies
 pip install -r requirements.txt
 
 ### Configuration
 
 config.json
-Create a config.json file in the project root (if not already created) with the following content:
-
+Create a config.json file in the project root with the following content:
+```
 {
   "DEBUG": true,
   "SECRET_KEY": "your-secret-key",
@@ -106,6 +98,7 @@ Create a config.json file in the project root (if not already created) with the 
   "MAIL_USE_TLS": true,
   "MAIL_USE_SSL": false
 }
+```
 
 secret_key: Used by Flask to secure sessions.
 userpass, basedir, dbname: Combined to build the SQLAlchemy database URI.
@@ -113,28 +106,34 @@ username, password: Admin credentials for TPO login.
 gmail-user, gmail-password: Email credentials for sending appointment confirmations.
 
 ### Usage
-Set Up the Database
+- Set Up the Database
 
-Ensure MySQL is running.
-Create a database named placement (or update the name in config.json).
-Ensure your MySQL user has the appropriate privileges.
+- Ensure MySQL is running.
+- Create a database named placement (or update the name in config.json).
+- Ensure your MySQL user has the appropriate privileges.
 
-Run the Application
+- Run the Application
+```
 python main.py
+```
 
 The Flask server will run on http://127.0.0.1:5000 by default.
 
-Access the Application
+- Access the Application
 
-User Login/Signup:
+- User Login/Signup:
 Navigate to /login for logging in or /signup for creating a new user account.
-Admin Login:
+
+- Admin Login:
 Navigate to /admin and use the credentials specified in config.json.
-Appointment Booking:
+
+- Appointment Booking:
 After logging in, visit /appointment to schedule an appointment.
-Feedback:
+
+- Feedback:
 Submit feedback via /feedback.
-Admin Dashboard:
+
+- Admin Dashboard:
 Admin can view all appointments via /adminappointment.
 
 ### Routes
@@ -163,4 +162,12 @@ Here are some key routes defined in the application:
 - /test : A test route to check database connectivity
 
 ### Contact
-For any issues, suggestions, or contributions, please feel free to open an issue or contact the author directly.
+Team Members:
+
+- Prajakta Patil
+- Shivani Dangal
+- Sayali Kulkarni
+
+For any questions or feedback, please contact us at pprajakta1406@gmail.com
+
+Thank you for exploring our TPO's Virtual Assistant. If you find this project useful, please consider starring the repository on GitHub!
